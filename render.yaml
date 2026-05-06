@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: project-232042
+    env: php
+    buildCommand: mkdir -p thumbnail video
+    startCommand: php -S 0.0.0.0:$PORT
