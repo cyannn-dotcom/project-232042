@@ -1,7 +1,7 @@
 <?php
 // ✅ Matikan semua output error PHP agar tidak mengacaukan JSON
 error_reporting(0);
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
