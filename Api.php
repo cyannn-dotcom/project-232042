@@ -14,7 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;
 }
 
-$conn = mysqli_connect("sql311.infinityfree.com", "if0_41827143", "nQbTviNYRGAjVK", "if0_41827143_tugas_232042");
+$conn = mysqli_connect(
+    "trolley.proxy.rlwy.net",
+    "root",
+    "KfBUjePOoqIEnipqfxzcnjPBWWUmrTWA",
+    "railway",
+    23412
+);
 
 if (!$conn) {
     echo json_encode(["status" => "error", "message" => "koneksi database gagal"]);
