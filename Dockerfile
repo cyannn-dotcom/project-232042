@@ -9,4 +9,6 @@ COPY . .
 RUN mkdir -p thumbnail video
 RUN chmod -R 777 thumbnail video
 
-CMD sh -c 'echo "PORT=$PORT" && php -S 0.0.0.0:${PORT:-8080} -t /var/www/html'
+EXPOSE 8080
+
+CMD ["php", "-S", "0.0.0.0:8080", "-t", "/var/www/html"]
