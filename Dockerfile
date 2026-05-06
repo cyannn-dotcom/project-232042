@@ -1,16 +1,14 @@
-FROM php:8.1-apache
+FROM php:8.1-cli
 
 RUN docker-php-ext-install mysqli
 
-COPY . /var/www/html/
+WORKDIR /var/www/html
 
-RUN mkdir -p /var/www/html/thumbnail /var/www/html/video
-RUN chmod -R 777 /var/www/html/thumbnail /var/www/html/video
+COPY . .
 
-RUN sed -i 's/80/\${PORT}/g' /etc/apache2/ports.conf
-RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:\${PORT}>/g' /etc/apache2/sites-available/000-default.conf
+RUN mkdir -p thumbnail video
+RUN chmod -R 777 thumbnail video
 
-ENV PORT=80
-EXPOSE ${PORT}
+EXPOSE 8080
 
-CMD ["apache2-foreground"]
+CMD php -S 0.0.0.0:$PORT -t /var/www/html
